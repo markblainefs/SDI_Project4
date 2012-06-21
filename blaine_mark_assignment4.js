@@ -53,16 +53,25 @@ var markoLibrary = function(){
     	for(var i=0,l=format.length; i<l; i++) {
         	format[i] = format[i].substr(0,1).toUpperCase() + 
                  (format[i].length > 1 ? format[i].substr(1).toLowerCase() : "");
-    }
-    return format.join(" ");
-}
-
+        };
+        return format.join(" ");
+    };
+    
+	// SPLIT A STRING WITH A SEPARATOR AND COMBINE WITH ANOTHER SEPARATOR
+	// First splits the string anywhere there is a give separator.  
+	// Then removes the previous separator and recombines with another separator
+	var splitString = function(string,oldSep,newSep) {
+    	var temp = string.split(oldSep);
+        return temp.join(newSep);
+    };
+    
 	// RETURNS
 	return {
 		"checkPhoneNumber":checkPhoneNumber,
 		"checkEmailAddress":checkEmailAddress,
 		"checkURL":checkURL,
-		"properCase":properCase
+		"properCase":properCase,
+		"splitString":splitString
 	};
 };
 
@@ -71,3 +80,4 @@ console.log("Phone number format? " + lib.checkPhoneNumber("210-555-4444"));
 console.log("Email address format? " + lib.checkEmailAddress("mark@markblaine.com"));
 console.log("URL format? " + lib.checkURL("http://www.google.com"));
 console.log("Proper case is " + lib.properCase("mark blaine"));
+console.log("Split and combine: " + lib.splitString("a,b,c",",","/"));
