@@ -64,7 +64,7 @@ var markoLibrary = function(){
     	var temp = string.split(oldSep);
         return temp.join(newSep);
     };
-    
+
     // CALCULATE THE DIFFERENCE BETWEEN TWO DATES
     // Converts the dates from (YYYY,MM,DD) and subtracts them to determine
     // the number of days that have passed.
