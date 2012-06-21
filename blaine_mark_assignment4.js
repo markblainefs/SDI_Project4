@@ -65,19 +65,32 @@ var markoLibrary = function(){
         return temp.join(newSep);
     };
     
+    // CALCULATE THE DIFFERENCE BETWEEN TWO DATES
+    // Converts the dates from (YYYY,MM,DD) and subtracts them to determine
+    // the number of days that have passed.
+    var calcDateDiff = function(date1,date2){
+	    var newDate1 = new Date(date1);
+	    var newDate2 = new Date(date2);
+	    var difference = newDate2-newDate1;
+	    return difference;
+    };
+    
 	// RETURNS
 	return {
 		"checkPhoneNumber":checkPhoneNumber,
 		"checkEmailAddress":checkEmailAddress,
 		"checkURL":checkURL,
 		"properCase":properCase,
-		"splitString":splitString
+		"splitString":splitString,
+		"calcDateDiff":calcDateDiff
 	};
 };
 
 var lib = new markoLibrary();
+
 console.log("Phone number format? " + lib.checkPhoneNumber("210-555-4444"));
 console.log("Email address format? " + lib.checkEmailAddress("mark@markblaine.com"));
 console.log("URL format? " + lib.checkURL("http://www.google.com"));
 console.log("Proper case is " + lib.properCase("mark blaine"));
 console.log("Split and combine: " + lib.splitString("a,b,c",",","/"));
+console.log("Days that have passed: " + lib.calcDateDiff((2000, 5, 20),(2000, 5, 27)));
