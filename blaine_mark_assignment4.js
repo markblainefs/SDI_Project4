@@ -36,7 +36,8 @@ var markoLibrary = function(){
 	// at the end, then checks for upper and lower case letters with optional 
 	// underscores, dashes and periods, ending with a period and 2-4 letters.
 	var checkURL = function(url){
-		var target = /^(ht|f)tps?:\/\/[a-zA-Z0-9-_\.]+\.[a-zA-Z]{2,4}$/;
+		var target = /^((ht|f)tps?:\/\/)?[a-zA-Z0-9-_\.]+\.[a-zA-Z]{2,4}$/;
+
 		if (target.test(url)){
 			return true;
 		} else {
@@ -90,7 +91,7 @@ var lib = new markoLibrary();
 
 console.log("Phone number format? " + lib.checkPhoneNumber("210-555-4444"));
 console.log("Email address format? " + lib.checkEmailAddress("mark@markblaine.com"));
-console.log("URL format? " + lib.checkURL("http://www.google.com"));
+console.log("URL format? " + lib.checkURL("www.google.com"));
 console.log("Proper case is " + lib.properCase("mark blaine"));
 console.log("Split and combine: " + lib.splitString("a,b,c",",","/"));
 console.log("Days that have passed: " + lib.calcDateDiff((2000, 5, 20),(2000, 5, 27)));
